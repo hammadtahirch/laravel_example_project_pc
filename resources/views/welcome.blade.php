@@ -67,7 +67,7 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    COMING SOON
+                    <a href="{{url("home")}}">COMING SOON</a>
                 </div>
             </div>
         </div>
