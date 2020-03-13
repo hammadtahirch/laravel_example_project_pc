@@ -1,6 +1,7 @@
 
 @extends('layout.master')
-
+@include("shared.top_nav")
+@include("shared.banner")
 @section('content')
     <!--Feature-->
     <section id="feature" class="section-padding">
@@ -25,6 +26,7 @@
             </div>
         </div>
     </section>
+    @include("shared.footer")
     <!--/ feature-->
 @stop
 

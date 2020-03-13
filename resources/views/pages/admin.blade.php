@@ -1,4 +1,3 @@
-
 @extends('layout.master')
 
 @section('content')
@@ -6,43 +5,36 @@
     <section id="feature" class="section-padding">
         <div class="container">
             <div class="row">
-                <div class="header-section text-center">
-                    <h2>Features</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
-                    <hr class="bottom-line">
-                </div>
-                <div class="feature-info">
-                    <div class="fea">
-                        <div class="col-md-4">
-                            <div class="heading pull-right">
-                                <h4>Latest Technologies</h4>
-                                <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
-                            </div>
-                            <div class="fea-img pull-left">
-                                <i class="fa fa-css3"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fea">
-                        <div class="col-md-4">
-                            <div class="heading pull-right">
-                                <h4>Toons Background</h4>
-                                <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
-                            </div>
-                            <div class="fea-img pull-left">
-                                <i class="fa fa-drupal"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="fea">
-                        <div class="col-md-4">
-                            <div class="heading pull-right">
-                                <h4>Award Winning Design</h4>
-                                <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
-                            </div>
-                            <div class="fea-img pull-left">
-                                <i class="fa fa-trophy"></i>
-                            </div>
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="login-box-body">
+                        <p class="login-box-msg mart20">Administrator Login</p>
+                        <div class="form-group">
+                            <form name="login-form" action="{{url("verify_login")}}">
+                                <div class="form-group has-feedback">
+                                    <!----- username -------------->
+                                    <input class="form-control" placeholder="Username" id="loginid" type="text"
+                                           autocomplete="off"/>
+                                    <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"
+                                          id="span_loginid"></span>
+                                    <!---Alredy exists  ! -->
+                                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <!----- password -------------->
+                                    <input class="form-control" placeholder="Password" id="loginpsw" type="password"
+                                           autocomplete="off"/>
+                                    <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"
+                                          id="span_loginpsw"></span>
+                                    <!---Alredy exists  ! -->
+                                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <button type="submit" class="btn btn-green btn-block btn-flat">Sign In
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
