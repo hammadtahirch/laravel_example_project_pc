@@ -2,52 +2,20 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\Auth;
+
 /**
  * Class UserService
  * @package App\Services
  */
 class UserService
 {
-
-
-    /**
-     * @param array $request
-     */
-    public function getAllBoardMembers(array $request)
-    {
-
-    }
-
-    /**
-     * @param int $id
-     */
-    public function getBoardMemberById(int $id)
-    {
-
-    }
-
-    /**
-     * @param array $request
-     */
-    public function saveBoardMember(array $request)
-    {
-
-    }
-
-    /**
-     * @param int $id
-     * @param array $request
-     */
-    public function updateBoardMember(int $id, array $request)
-    {
-
-    }
-
-    /**
-     * @param int $id
-     */
-    public function DestroyBoardMember(int $id)
-    {
-
+    public function verifyUser($postParam){
+        if (Auth::attempt(['email' => $postParam["email"], 'password' => $postParam["password"]]))
+        {
+            return true;
+        }else{
+            return false;
+        }
     }
 }

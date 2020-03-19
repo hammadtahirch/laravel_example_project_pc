@@ -16,12 +16,12 @@ class CreateBoardMembers extends Migration
         Schema::create('board_members', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("picture_url");
+            $table->text("picture_url");
             $table->string("chapter_designation");
             $table->string("email");
             $table->string("post");
             $table->string("organization_name");
-            $table->string("description");
+            $table->text("description");
             $table->timestamps();
         });
     }

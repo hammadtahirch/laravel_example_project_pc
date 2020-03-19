@@ -9,11 +9,13 @@
                     <div class="login-box-body">
                         <p class="login-box-msg mart20">Administrator Login</p>
                         <div class="form-group">
-                            <form name="login-form" action="{{url("verify_login")}}">
+                            <?php echo flashMessage(); ?>
+                            <form name="login-form" method="post" action="{{url("verify_login")}}">
+                                @csrf
                                 <div class="form-group has-feedback">
                                     <!----- username -------------->
                                     <input class="form-control" placeholder="Username" id="loginid" type="text"
-                                           autocomplete="off"/>
+                                           autocomplete="off" name="email"/>
                                     <span style="display:none;font-weight:bold; position:absolute;color: red;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"
                                           id="span_loginid"></span>
                                     <!---Alredy exists  ! -->
@@ -22,7 +24,7 @@
                                 <div class="form-group has-feedback">
                                     <!----- password -------------->
                                     <input class="form-control" placeholder="Password" id="loginpsw" type="password"
-                                           autocomplete="off"/>
+                                           autocomplete="off" name="password"/>
                                     <span style="display:none;font-weight:bold; position:absolute;color: grey;position: absolute;padding:4px;font-size: 11px;background-color:rgba(128, 128, 128, 0.26);z-index: 17;  right: 27px; top: 5px;"
                                           id="span_loginpsw"></span>
                                     <!---Alredy exists  ! -->

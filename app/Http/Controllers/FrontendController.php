@@ -30,10 +30,6 @@ class FrontendController extends Controller
         return view("pages.job-opportunities");
     }
 
-    public function admin(){
-        return view("pages.admin");
-    }
-
     public function joinUs(){
         return view("pages.join-us");
     }
