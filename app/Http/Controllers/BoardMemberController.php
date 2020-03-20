@@ -18,10 +18,10 @@ class BoardMemberController extends Controller
     public function loadEditView($view, $id)
     {
         if ($view === "create") {
-            return view("pages.admin.save_or_update_board_member")->with(["member" => []]);;
+            return view("pages.admin.create_update_board_member")->with(["member" => []]);;
         } else {
             $boardMember = BoardMember::find($id);
-            return view("pages.admin.save_or_update_board_member")
+            return view("pages.admin.create_update_board_member")
                 ->with(["member" => $boardMember]);
         }
     }

@@ -14,7 +14,7 @@
                 <li><a href="{{url("admin/board-members")}}">Board Member</a></li>
                 <li><a href="{{url("admin/news-events")}}">News & Events</a></li>
                 <li><a href="{{url("admin/media-gallery")}}">Media Gallery</a></li>
-                <li><a href="{{url("admin/job-opportunities")}}">Jobs</a></li>
+                <li><a href="{{url("admin/jobs")}}">Jobs</a></li>
                 <li class="btn-trial"><a href="{{url("logout")}}">Logout</a></li>
             </ul>
         </div>

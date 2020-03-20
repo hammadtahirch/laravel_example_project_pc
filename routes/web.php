@@ -29,14 +29,30 @@ Route::post("/verify_login","UserController@login");
 Route::get("/logout","UserController@logout");
 
 Route::group(['middleware' => 'auth',"prefix"=>"/admin"],function (){
+
+    //board member
     Route::get("/board-members","BoardMemberController@getAllBoardMembers");
     Route::get("/board-member/{view}/{id?}","BoardMemberController@loadEditView");
 
     Route::post("/board-member","BoardMemberController@saveBoardMember");
     Route::put("/board-member/{id}","BoardMemberController@updateBoardMember");
     Route::get("/delete-board-member/{id}","BoardMemberController@destroyBoardMember");
+    //end
 
-    Route::get("/job-opportunities","BoardMemberController@index");
-    Route::get("/media-gallery","BoardMemberController@index");
-    Route::get("/news-events","BoardMemberController@index");
+    //job
+    Route::get("/jobs","JobPostingController@getAllJobs");
+    Route::get("/job/{view}/{id?}","JobPostingController@loadEditView");
+    Route::post("/job","JobPostingController@saveJob");
+    Route::put("/job/{id}","JobPostingController@updateJob");
+    Route::get("/delete-job/{id}","JobPostingController@destroyJob");
+    //end
+
+    //news events
+    Route::get("/news-events","NewsEventController@getAllNewsEvents");
+    Route::get("/news-event/{view}/{id?}","NewsEventController@loadEditView");
+    Route::post("/news-event","NewsEventController@saveNewsEvent");
+    Route::put("/news-event/{id}","NewsEventController@updateNewsEvent");
+    Route::get("/delete-news-event/{id}","NewsEventController@destroyNewsEvent");
+    //end
+
 });
