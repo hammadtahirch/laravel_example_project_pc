@@ -11,10 +11,10 @@
 
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
-    <link rel="stylesheet" type="text/css" href="{{asset("css/font-awesome.min.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{asset("css/bootstrap.min.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{asset("css/imagehover.min.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{asset("css/style.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{secure_asset("css/font-awesome.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{secure_asset("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{secure_asset("css/imagehover.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{secure_asset("css/style.css")}}">
 
 </head>
 
@@ -22,10 +22,10 @@
 
 @yield('content')
 
-<script src="{{asset("js/jquery.min.js")}}"></script>
-<script src="{{asset("js/jquery.easing.min.js")}}"></script>
-<script src="{{asset("js/bootstrap.min.js")}}"></script>
-<script src="{{asset("js/custom.js")}}"></script>
+<script src="{{secure_asset("js/jquery.min.js")}}"></script>
+<script src="{{secure_asset("js/jquery.easing.min.js")}}"></script>
+<script src="{{secure_asset("js/bootstrap.min.js")}}"></script>
+<script src="{{secure_asset("js/custom.js")}}"></script>
 
 </body>
 

@@ -28,7 +28,15 @@ class BoardMemberController extends Controller
 
     public function saveBoardMember(Request $request)
     {
-        $request = $request->all();
+        $imageName = '';
+        if (!empty($request->picture_url)) {
+            $imageName = $this->uploadImage($request);
+            $request = $request->all();
+            $request["picture_url"] = $imageName;
+        } else {
+            $request = $request->all();
+        }
+
         $boarMember = new BoardMember($request);
         $boarMember->save();
 
@@ -42,8 +50,17 @@ class BoardMemberController extends Controller
 
     public function updateBoardMember($id, Request $request)
     {
+        $imageName = '';
+        if (!empty($request->picture_url)) {
+            $imageName = $this->uploadImage($request);
+            $request = $request->all();
+            $request["picture_url"] = $imageName;
+        } else {
+            $request = $request->all();
+        }
+
         $boardMembers = BoardMember::find($id);
-        if ($boardMembers->update($request->all())) {
+        if ($boardMembers->update($request)) {
             return redirect("/admin/board-members")
                 ->with('message', 'success|Congregations! Update success fully.');
         }
@@ -57,5 +74,15 @@ class BoardMemberController extends Controller
         $boardMember->delete();
         return redirect("/admin/board-members")
             ->with('message', 'success|Congregations! Delete success fully.');
+    }
+
+    private function uploadImage($request)
+    {
+        $request->validate([
+            'picture_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = "team_member_" . time() . '.' . $request->picture_url->extension();
+        $request->picture_url->move(public_path('images'), $imageName);
+        return $imageName;
     }
 }

@@ -16,9 +16,9 @@
                         </div>
                         <div class="card-body">
                             <?php if (Request::segment(3) === "create") { ?>
-                            <form method="POST" action="{{url("admin/board-member")}}">
+                            <form method="POST" action="{{url("admin/board-member")}}" enctype="multipart/form-data">
                                 <?php }else{?>
-                                <form method="POST" action="{{url("admin/board-member")."/"}}<?= $member->id ?? ""?>">
+                                <form method="POST" action="{{url("admin/board-member")."/"}}<?= $member->id ?? ""?>" enctype="multipart/form-data">
                                     {{ method_field('PUT') }}
                                     <?php } ?>
                                     {{ csrf_field() }}
@@ -29,8 +29,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="pwd">Picture Url:</label>
-                                        <input type="text" class="form-control" name="picture_url"
-                                               value="<?=$member->picture_url ?? "" ?>"/>
+                                        <input type="file" class="form-control" name="picture_url"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="text">Chapter Designation:</label>
@@ -48,7 +47,7 @@
                                                value="<?=$member->post ?? "" ?>"/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="text">organization_name:</label>
+                                        <label for="text">Organization Name:</label>
                                         <input type="text" class="form-control" name="organization_name"
                                                value="<?=$member->organization_name ?? "" ?>"/>
                                     </div>

@@ -1,7 +1,7 @@
 @extends('layout.master')
 @include('shared.admin_nav')
 @section('content')
-<!--    --><?php //echo "<pre>";print_r($data);  echo "</pre>"; die;?>
+    <!--    --><?php //echo "<pre>";print_r($data);  echo "</pre>"; die;?>
     <section id="feature" class="section-padding">
         <div class="container">
             <div class="row">
@@ -12,7 +12,8 @@
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 text-right padding-zero">
-                                <a href="{{url("/admin/news-event/create/0")}}" class="btn btn-success">Create News & Event</a>
+                                <a href="{{url("/admin/news-event/create/0")}}" class="btn btn-success">Create News &
+                                    Event</a>
                             </div>
 
                             <div class="clearfix"></div>
@@ -31,6 +32,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php if(!$data->isEmpty()){?>
                                     <?php foreach ($data as $index=>$newsEvent){?>
                                     <tr>
                                         <th scope="row">{{$newsEvent->id}}</th>
@@ -49,26 +51,25 @@
                                                     <li><a href="{{url("/admin/news-event/edit/".$newsEvent->id."")}}">View
                                                             &
                                                             Edit</a></li>
-                                                    <li><a href="{{url("/admin/delete-news-event/".$newsEvent->id."")}}">Delete</a>
+                                                    <li>
+                                                        <a href="{{url("/admin/delete-news-event/".$newsEvent->id."")}}">Delete</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </td>
                                     </tr>
 
+                                    <?php }}else{?>
+                                    <tr>
+                                        <td colspan="7">
+                                            No Records. Please create new.
+                                        </td>
+                                    </tr>
                                     <?php }?>
 
                                     </tbody>
                                 </table>
-                                <nav aria-label="Page navigation text-centre">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </nav>
+                                <div class="text-center">{{$data->links()}}</div>
                             </div>
 
                         </div>

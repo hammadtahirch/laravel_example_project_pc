@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/",function (){
-    return view("welcome");
-});
+//Route::get("/",function (){
+//    return view("welcome");
+//});
+Route::get("/","FrontendController@aboutUs");
 Route::get("/home","FrontendController@aboutUs");
 Route::get("/about-us","FrontendController@aboutUs");
 Route::get("/news-events","FrontendController@newsEvents");
@@ -24,6 +25,7 @@ Route::get("/board-members","FrontendController@boardMembers");
 Route::get("/contact-us","FrontendController@contactUs");
 Route::get("/job-opportunities","FrontendController@jobOpportunities");
 Route::get("/join-us","FrontendController@joinUs");
+
 Route::get("/admin","UserController@login")->name("admin");
 Route::post("/verify_login","UserController@login");
 Route::get("/logout","UserController@logout");
@@ -53,6 +55,21 @@ Route::group(['middleware' => 'auth',"prefix"=>"/admin"],function (){
     Route::post("/news-event","NewsEventController@saveNewsEvent");
     Route::put("/news-event/{id}","NewsEventController@updateNewsEvent");
     Route::get("/delete-news-event/{id}","NewsEventController@destroyNewsEvent");
+    //end
+
+
+    //projects
+    Route::get("/galleries", "EventGalleryController@getAllGalleries");
+    Route::get("/gallery/{view}/{id?}", "EventGalleryController@loadEditView");
+
+    Route::post("/gallery", "EventGalleryController@saveGallery");
+    Route::put("/gallery/{id}", "EventGalleryController@updateGallery");
+
+    Route::get("/gallery-image/{gallery_id}/images", "EventGalleryController@getGalleryImages");
+    Route::post("/gallery-image/{gallery_id}/image", "EventGalleryController@createGalleryImage");
+    Route::get("/gallery-image/{gallery_id}/image/{image_id}", "EventGalleryController@deleteGalleryImage");
+
+    Route::get("/delete-gallery/{id}", "EventGalleryController@destroyGallery");
     //end
 
 });

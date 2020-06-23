@@ -11,7 +11,8 @@
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 text-right padding-zero">
-                                <a href="{{url("/admin/board-member/create/0")}}" class="btn btn-success">Create Member</a>
+                                <a href="{{url("/admin/board-member/create/0")}}" class="btn btn-success">Create
+                                    Member</a>
                             </div>
 
                             <div class="clearfix"></div>
@@ -31,11 +32,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php if(!$data->isEmpty()){?>
                                     <?php foreach ($data as $index=>$member){?>
                                     <tr>
                                         <th scope="row">{{$member->id}}</th>
                                         <td>{{$member->name}}</td>
-                                        <td><img class="round-image" src="{{$member->picture_url}}"/></td>
+                                        <td><img class="round-image" src="{{url("/images/".$member->picture_url)}}"/>
+                                        </td>
                                         <td>{{$member->chapter_designation}}</td>
                                         <td>{{$member->email}}</td>
                                         <td>{{$member->post}}</td>
@@ -47,27 +50,28 @@
                                                         aria-expanded="false">Success <span class="caret"></span>
                                                 </button>
                                                 <ul class="action dropdown-menu">
-                                                    <li><a href="{{url("/admin/board-member/edit/".$member->id."")}}">View &
+                                                    <li><a href="{{url("/admin/board-member/edit/".$member->id."")}}">View
+                                                            &
                                                             Edit</a></li>
-                                                    <li><a href="{{url("/admin/delete-board-member/".$member->id."")}}">Delete</a></li>
+                                                    <li><a href="{{url("/admin/delete-board-member/".$member->id."")}}">Delete</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </td>
                                     </tr>
 
                                     <?php }?>
+                                    <?php }else{?>
+                                    <tr>
+                                        <td colspan="8">
+                                            No Records. Please create new.
+                                        </td>
+                                    </tr>
+                                    <?php }?>
 
                                     </tbody>
                                 </table>
-                                <nav aria-label="Page navigation text-centre">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </nav>
+                                <div class="text-center">{{$data->links()}}</div>
                             </div>
 
                         </div>

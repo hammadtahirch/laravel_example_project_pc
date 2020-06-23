@@ -31,6 +31,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <?php if(!$data->isEmpty()){ ?>
                                     <?php foreach ($data as $index=>$job){?>
                                     <tr>
                                         <th scope="row">{{$job->id}}</th>
@@ -55,19 +56,17 @@
                                         </td>
                                     </tr>
 
+                                    <?php }}else{?>
+                                    <tr>
+                                        <td colspan="6">
+                                            No Records. Please create new.
+                                        </td>
+                                    </tr>
                                     <?php }?>
 
                                     </tbody>
                                 </table>
-                                <nav aria-label="Page navigation text-centre">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </nav>
+                                <div class="text-center">{{$data->links()}}</div>
                             </div>
 
                         </div>
