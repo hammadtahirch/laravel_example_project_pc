@@ -36,7 +36,7 @@
                     @endforeach
                 @else
                     <div class="alert alert-warning" role="alert">
-                        No job found.
+                        No media found.
                     </div>
                 @endif
             </div>
