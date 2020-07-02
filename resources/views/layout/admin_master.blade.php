@@ -5,7 +5,7 @@
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Manitobas Pakistan Chapter</title>
+    <title>Manitoba's Pakistan Chapter</title>
     <link rel="icon" href="{{secure_asset('assets/logo_favicon.png')}}" type="image/png" >
     <link rel="stylesheet" type="text/css"
           href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans" >
@@ -18,8 +18,6 @@
 </head>
 
 <body>
-@include("shared.top_nav")
-@include("shared.banner")
 @yield('content')
 
 <script src="{{secure_asset('js/jquery.min.js')}}"></script>
@@ -27,6 +25,5 @@
 <script src="{{secure_asset('js/bootstrap.min.js')}}"></script>
 <script src="{{secure_asset('js/jquery.datetimepicker.js')}}"></script>
 <script src="{{secure_asset('js/custom.js')}}"></script>
-@include("shared.footer")
 </body>
 </html>

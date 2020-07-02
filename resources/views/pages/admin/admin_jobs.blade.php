@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.admin_master')
 @include('shared.admin_nav')
 @section('content')
     <!--    --><?php //echo "<pre>";print_r($data);  echo "</pre>"; die;?>

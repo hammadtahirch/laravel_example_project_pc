@@ -11,10 +11,18 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{url("admin/board-members")}}">Board Member</a></li>
-                <li><a href="{{url("admin/news-events")}}">News & Events</a></li>
-                <li><a href="{{url("admin/galleries")}}">Media Gallery</a></li>
-                <li><a href="{{url("admin/jobs")}}">Jobs</a></li>
+                <li class="<?php if (Request::segment(2) === "board-members" || Request::segment(2) === "board-member") echo "btn-trial"?> ">
+                    <a
+                            href="<?=url("admin/board-members")?>">Board Member</a></li>
+                <li class="<?php if (Request::segment(2) === "news-events" || Request::segment(2) === "news-event") echo "btn-trial"?>">
+                    <a
+                            href="{{url("admin/news-events")}}">Events</a></li>
+                <li class="<?php if (Request::segment(2) === "galleries" || Request::segment(2) === "gallery" || Request::segment(2) === "gallery-image") echo "btn-trial"?>">
+                    <a
+                            href="{{url("admin/galleries")}}">Media Gallery</a></li>
+                <li class="<?php if (Request::segment(2) === "jobs" || Request::segment(2) === "job") echo "btn-trial"?>">
+                    <a
+                            href="{{url("admin/jobs")}}">Jobs</a></li>
                 <li class="btn-trial"><a href="{{url("logout")}}">Logout</a></li>
             </ul>
         </div>

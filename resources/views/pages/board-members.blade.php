@@ -1,156 +1,48 @@
-
 @extends('layout.master')
-@include("shared.top_nav")
-@include("shared.banner")
+
 @section('content')
     <!--Feature-->
     <section id="feature" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="header-section text-center">
-                    <h2>Meet Our Board Member</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
+                    <h2>Meet Our Member</h2>
                     <hr class="bottom-line">
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="pm-staff-profile-container">
-                        <div class="pm-staff-profile-image-wrapper text-center">
-                            <div class="pm-staff-profile-image">
-                                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
+                @if(!$board_members->isEmpty())
+                    @foreach($board_members as $boardMember)
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="pm-staff-profile-container">
+                                <div class="pm-staff-profile-image-wrapper text-center">
+                                    <div class="pm-staff-profile-image">
+                                        <img src="{{asset("images/".$boardMember->picture_url)}}" alt=""
+                                             class="img-thumbnail img-circle"/>
+                                    </div>
+                                </div>
+                                <div class="pm-staff-profile-details text-center">
+                                    <p class="pm-staff-profile-name ">{{$boardMember->name}}</p>
+                                    <p class="pm-staff-profile-title"  style="font-size: 14px;font-weight: bold;">
+                                        <a href="mailto:{{$boardMember->email}}"
+                                           class="pm-staff-profile-title">
+                                            Chapter `{{$boardMember->chapter_designation}}`, `{{$boardMember->post}}`
+                                            AT `{{$boardMember->organization_name}}`</a>
+                                    </p>
+                                    <p class="pm-staff-profile-bio">{{$boardMember->description}}</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">Bryan Johnson</p>
-                            <p class="pm-staff-profile-title">Lead Software Engineer</p>
-
-                            <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-                        </div>
+                    @endforeach
+                @else
+                    <div class="alert alert-warning" role="alert">
+                        No member found.
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="pm-staff-profile-container">
-                        <div class="pm-staff-profile-image-wrapper text-center">
-                            <div class="pm-staff-profile-image">
-                                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                            </div>
-                        </div>
-                        <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">Bryan Johnson</p>
-                            <p class="pm-staff-profile-title">Lead Software Engineer</p>
+                @endif
 
-                            <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="pm-staff-profile-container">
-                        <div class="pm-staff-profile-image-wrapper text-center">
-                            <div class="pm-staff-profile-image">
-                                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                            </div>
-                        </div>
-                        <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">Bryan Johnson</p>
-                            <p class="pm-staff-profile-title">Lead Software Engineer</p>
-
-                            <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="pm-staff-profile-container">
-                        <div class="pm-staff-profile-image-wrapper text-center">
-                            <div class="pm-staff-profile-image">
-                                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                            </div>
-                        </div>
-                        <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">Bryan Johnson</p>
-                            <p class="pm-staff-profile-title">Lead Software Engineer</p>
-
-                            <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="pm-staff-profile-container">
-                        <div class="pm-staff-profile-image-wrapper text-center">
-                            <div class="pm-staff-profile-image">
-                                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                            </div>
-                        </div>
-                        <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">Bryan Johnson</p>
-                            <p class="pm-staff-profile-title">Lead Software Engineer</p>
-
-                            <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="pm-staff-profile-container">
-                        <div class="pm-staff-profile-image-wrapper text-center">
-                            <div class="pm-staff-profile-image">
-                                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                            </div>
-                        </div>
-                        <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">Bryan Johnson</p>
-                            <p class="pm-staff-profile-title">Lead Software Engineer</p>
-
-                            <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="pm-staff-profile-container">
-                        <div class="pm-staff-profile-image-wrapper text-center">
-                            <div class="pm-staff-profile-image">
-                                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                            </div>
-                        </div>
-                        <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">Bryan Johnson</p>
-                            <p class="pm-staff-profile-title">Lead Software Engineer</p>
-
-                            <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="pm-staff-profile-container">
-                        <div class="pm-staff-profile-image-wrapper text-center">
-                            <div class="pm-staff-profile-image">
-                                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                            </div>
-                        </div>
-                        <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">Bryan Johnson</p>
-                            <p class="pm-staff-profile-title">Lead Software Engineer</p>
-
-                            <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="pm-staff-profile-container">
-                        <div class="pm-staff-profile-image-wrapper text-center">
-                            <div class="pm-staff-profile-image">
-                                <img src="img/mentor.jpg" alt="" class="img-thumbnail img-circle" />
-                            </div>
-                        </div>
-                        <div class="pm-staff-profile-details text-center">
-                            <p class="pm-staff-profile-name">Bryan Johnson</p>
-                            <p class="pm-staff-profile-title">Lead Software Engineer</p>
-
-                            <p class="pm-staff-profile-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et placerat dui. In posuere metus et elit placerat tristique. Maecenas eu est in sem ullamcorper tincidunt. </p>
-                        </div>
-                    </div>
-                </div>
             </div>
+            <div class="row text-center">{{$board_members->links()}}</div>
         </div>
     </section>
-    @include("shared.footer")
+
     <!--/ feature-->
 @stop
 

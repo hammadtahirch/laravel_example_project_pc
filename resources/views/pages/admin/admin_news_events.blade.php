@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.admin_master')
 @include('shared.admin_nav')
 @section('content')
     <!--    --><?php //echo "<pre>";print_r($data);  echo "</pre>"; die;?>
@@ -8,7 +8,7 @@
                 <div class="col-md-12 col-sm-12 mart20 service-box">
                     <div class="card">
                         <div class="card-header">
-                            <h4>News & Events</h4>
+                            <h4>Events</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 text-right padding-zero">

@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.admin_master')
 @include('shared.admin_nav')
 @section('content')
     <section id="feature" class="section-padding">
@@ -18,7 +18,7 @@
                             <?php if (Request::segment(3) === "create") { ?>
                             <form method="POST" action="{{url("admin/gallery")}}">
                                 <?php }else{?>
-                                <form method="POST" action="{{url("admin/gallery/".$gallery)}}">
+                                <form method="POST" action="{{url("admin/gallery/".$gallery->id)}}">
                                     {{ method_field('PUT') }}
                                     <?php } ?>
                                     {{ csrf_field() }}

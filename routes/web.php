@@ -20,10 +20,13 @@ Route::get("/","FrontendController@aboutUs");
 Route::get("/home","FrontendController@aboutUs");
 Route::get("/about-us","FrontendController@aboutUs");
 Route::get("/news-events","FrontendController@newsEvents");
+Route::get("/event-details/{id}","FrontendController@eventDetail");
 Route::get("/media-gallery","FrontendController@mediaGallery");
 Route::get("/board-members","FrontendController@boardMembers");
 Route::get("/contact-us","FrontendController@contactUs");
+Route::post("/contact-us","FrontendController@sendEmail");
 Route::get("/job-opportunities","FrontendController@jobOpportunities");
+Route::get("/job-details/{id}","FrontendController@jobDetails");
 Route::get("/join-us","FrontendController@joinUs");
 
 Route::get("/admin","UserController@login")->name("admin");

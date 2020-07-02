@@ -1,5 +1,4 @@
-@extends('layout.master')
-
+@extends('layout.admin_master')
 @section('content')
     <!--Feature-->
     <section id="feature" class="section-padding">

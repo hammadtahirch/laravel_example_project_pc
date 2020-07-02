@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.admin_master')
 @include('shared.admin_nav')
 @section('content')
     <section id="feature" class="section-padding">
@@ -34,12 +34,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="text">Start Date:</label>
-                                        <input type="date" class="form-control" name="start_date"
+                                        <input type="text" id="event_start_date" class="form-control" name="start_date"
                                                value="<?=$news_event->start_date ?? "" ?>"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="text">End Date:</label>
-                                        <input type="date" class="form-control" name="end_date"
+                                        <input type="text" id="event_end_date" class="form-control" name="end_date"
                                                value="<?=$news_event->end_date ?? "" ?>"/>
                                     </div>
                                     <div class="form-group">

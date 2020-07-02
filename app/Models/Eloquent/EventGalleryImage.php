@@ -14,6 +14,7 @@ class EventGalleryImage extends Model
      * @var array
      */
     protected $fillable = [
+        "id",
         "egi_id",
         "img_url",
     ];

@@ -1,7 +1,4 @@
-
 @extends('layout.master')
-@include("shared.top_nav")
-@include("shared.banner")
 @section('content')
     <!--Feature-->
     <section id="feature" class="section-padding">
@@ -9,76 +6,42 @@
             <div class="row">
                 <div class="header-section text-center">
                     <h2>Event Gallery</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae,<br> maiores, magni dolorum aliquam.</p>
+                    <p></p>
                     <hr class="bottom-line">
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-6 padleft-right">
-                    <figure class="imghvr-fold-up">
-                        <img src="img/course01.jpg" class="img-responsive">
-                        <figcaption>
-                            <h3>Course Name</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
-                <div class="col-md-4 col-sm-6 padleft-right">
-                    <figure class="imghvr-fold-up">
-                        <img src="img/course02.jpg" class="img-responsive">
-                        <figcaption>
-                            <h3>Course Name</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
-                <div class="col-md-4 col-sm-6 padleft-right">
-                    <figure class="imghvr-fold-up">
-                        <img src="img/course03.jpg" class="img-responsive">
-                        <figcaption>
-                            <h3>Course Name</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
-                <div class="col-md-4 col-sm-6 padleft-right">
-                    <figure class="imghvr-fold-up">
-                        <img src="img/course04.jpg" class="img-responsive">
-                        <figcaption>
-                            <h3>Course Name</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
-                <div class="col-md-4 col-sm-6 padleft-right">
-                    <figure class="imghvr-fold-up">
-                        <img src="img/course05.jpg" class="img-responsive">
-                        <figcaption>
-                            <h3>Course Name</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
-                <div class="col-md-4 col-sm-6 padleft-right">
-                    <figure class="imghvr-fold-up">
-                        <img src="img/course06.jpg" class="img-responsive">
-                        <figcaption>
-                            <h3>Course Name</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam atque, nostrum veniam consequatur libero fugiat, similique quis.</p>
-                        </figcaption>
-                        <a href="#"></a>
-                    </figure>
-                </div>
+                @if(!$galleries->isEmpty())
+                    @foreach($galleries as $gallery)
+                        <div class="col-md-4 col-sm-6 padleft-right">
+                            <figure class="imghvr-fold-up">
+                                @if(!empty($gallery->random_gallery_image->img_url))
+                                    <img style="width: 385px; height: 385px;"
+                                         src="{{url("/images/".$gallery->random_gallery_image->img_url)}}"
+                                         class="img-responsive">
+                                @else
+                                    <img style="width: 385px; height: 385px;"
+                                         src="{{url("/assets/default-image.png")}}"
+                                         class="img-responsive">
+                                @endif
+                                <figcaption>
+                                    <h3>{{$gallery->title}}</h3>
+                                    <p>{{$gallery->description}}</p>
+                                </figcaption>
+                                <a href="#"></a>
+                            </figure>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="alert alert-warning" role="alert">
+                        No job found.
+                    </div>
+                @endif
             </div>
+            <div class="row text-center">{{$galleries->links()}}</div>
         </div>
     </section>
-    @include("shared.footer")
 @stop
 
