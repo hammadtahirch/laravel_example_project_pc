@@ -15,7 +15,7 @@
                             <div class="pm-staff-profile-container">
                                 <div class="pm-staff-profile-image-wrapper text-center">
                                     <div class="pm-staff-profile-image">
-                                        <img src="{{asset("images/".$boardMember->picture_url)}}" alt=""
+                                        <img style="width: 155px;height: 155px;" src="{{asset("images/".$boardMember->picture_url)}}" alt=""
                                              class="img-thumbnail img-circle"/>
                                     </div>
                                 </div>

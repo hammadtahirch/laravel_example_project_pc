@@ -35,7 +35,7 @@ class EventGalleryController extends Controller
         $gallery = new EventGallery(
             [
                 "title" => $request["title"] ?? null,
-                "description" => $request["title"] ?? null
+                "description" => $request["description"] ?? null
             ]
         );
         $gallery->save();

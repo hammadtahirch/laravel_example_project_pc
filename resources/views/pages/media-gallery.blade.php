@@ -18,7 +18,7 @@
                         <div class="col-md-4 col-sm-6 padleft-right">
                             <figure class="imghvr-fold-up">
                                 @if(!empty($gallery->random_gallery_image->img_url))
-                                    <img style="width: 385px; height: 385px;"
+                                    <img  style="width: 385px; height: 385px;"
                                          src="{{url("/images/".$gallery->random_gallery_image->img_url)}}"
                                          class="img-responsive">
                                 @else
