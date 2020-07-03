@@ -26,11 +26,10 @@
                                          src="{{url("/assets/default-image.png")}}"
                                          class="img-responsive">
                                 @endif
-                                <figcaption>
+                                <figcaption style="max-height: 400px; overflow-y: scroll;">
                                     <h3>{{$gallery->title}}</h3>
                                     <p>{{$gallery->description}}</p>
                                 </figcaption>
-                                <a href="#"></a>
                             </figure>
                         </div>
                     @endforeach
