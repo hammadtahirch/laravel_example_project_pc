@@ -27,7 +27,9 @@
                                             Chapter `{{$boardMember->chapter_designation}}`, `{{$boardMember->post}}`
                                             AT `{{$boardMember->organization_name}}`</a>
                                     </p>
-                                    <p class="pm-staff-profile-bio">{{$boardMember->description}}</p>
+                                    <div style="overflow-y: scroll; max-height: 150px;text-align: initial;">
+                                        <p class="pm-staff-profile-bio">{{$boardMember->description}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
